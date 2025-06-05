@@ -44,6 +44,10 @@ footer {
     padding: 1.5rem;
     border-radius: 10px;
     box-sizing:initial;
+    width: 500px;
+    align-items: center;
+    margin-left: 21%;
+    text-align: center;
 } 
 
 .contact-box a{
@@ -52,8 +56,21 @@ footer {
 }
 
 .foot{
-    margin-top: 8.5%;
+    margin-top: 5.4%;
 }
 .foot-index{
-    margin-top:8.5%;
+    margin-top:6.3%;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+}
+
+.me img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid #00246B;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
