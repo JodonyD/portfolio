@@ -1,32 +1,46 @@
- body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f9fc;
-      color: #333;
-    }
+/* Basic Reset & Body Styles (Good as is, but adding a viewport meta tag in HTML is crucial) */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f9fc;
+    color: #333;
+    /* Using rem for a base font size can be good, but 16px is fine as a default */
+    font-size: 16px;
+}
+
+/* Header */
 header {
     background: #00246B;
     color: white;
-    padding: 2rem;
+    padding: 1.5rem 1rem; /* Slightly adjust padding for smaller screens */
     text-align: center;
 }
 
+/* Navigation */
 nav a {
     color: white;
-    margin: 0 1rem;
+    margin: 0 0.8rem; /* Slightly less margin for smaller screens */
     text-decoration: none;
     font-weight: 600;
+    /* Consider making font size relative if you want it to scale */
+    font-size: 1rem; /* Example: 1rem = 16px if body font-size is 16px */
 }
 
+/* Main Sections */
 section {
-    max-width: 900px;
+    max-width: 900px; /* Keep max-width for larger screens */
+    width: 90%; /* Use percentage width to make it fluid */
     margin: auto;
-    padding: 2rem;
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+    box-sizing: border-box; /* Ensures padding doesn't add to the width */
 }
+
 h2 {
     color: #0f172a;
+    font-size: 1.8rem; /* Relative font size for h2 */
 }
+
 .project {
     background: white;
     padding: 1rem;
@@ -34,44 +48,125 @@ h2 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     margin-bottom: 1rem;
 }
+
+/* Footer */
 footer {
     text-align: center;
     padding: 1rem;
     background: #00246B;
     color: white;
 }
-.contact-box{
+
+/* Contact Box */
+.contact-box {
     background: white;
     padding: 1.5rem;
     border-radius: 10px;
-    box-sizing:initial;
-    width: 500px;
-    align-items: center;
-    margin-left: 21%;
+    box-sizing: border-box; /* Important: Use border-box to handle padding */
+    width: 90%; /* Make width fluid */
+    max-width: 500px; /* Set a max-width for larger screens */
+    margin: 2rem auto; /* Center the box horizontally with some top/bottom margin */
     text-align: center;
-} 
+}
 
-.contact-box a{
+.contact-box a {
     color: blue;
-
 }
 
-.foot{
-    margin-top: 5.4%;
+/* Footer Margins (Consider if these are still needed after other adjustments) */
+.foot {
+    margin-top: 5.4%; /* This percentage margin can be tricky; consider responsive margin via media queries */
 }
-.foot-index{
-    margin-top:6.3%;
+.foot-index {
+    margin-top: 6.3%; /* Same here */
 }
 
+/* About Container - Excellent use of flexbox! */
 .about-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    flex-direction: column; /* Default to column for small screens */
+    align-items: center; /* Center items when stacked */
+    text-align: center; /* Center text when stacked */
 }
 
 .me img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 3px solid #00246B;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 150px; /* Slightly smaller default size for mobile */
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #00246B;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 1.5rem; /* Add some space below the image when stacked */
+}
+
+
+/* ------------------------------------------- */
+/* Media Queries for Responsiveness           */
+/* ------------------------------------------- */
+
+/* Small devices (phones, 576px and down) - These styles are already implied by the default */
+@media (max-width: 575px) {
+    header {
+        padding: 1rem; /* Reduce padding even more for very small screens */
+    }
+    nav a {
+        display: block; /* Stack nav links vertically */
+        margin: 0.5rem 0; /* Add vertical margin */
+    }
+    h2 {
+        font-size: 1.5rem; /* Smaller h2 for small screens */
+    }
+    .contact-box {
+        padding: 1rem; /* Smaller padding for small screens */
+    }
+}
+
+
+/* Medium devices (tablets, 576px and up) */
+@media (min-width: 576px) {
+    header {
+        padding: 1.5rem 2rem;
+    }
+    nav a {
+        margin: 0 1rem;
+        display: inline-block; /* Keep nav links inline */
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .about-container {
+        flex-direction: row; /* Switch to row layout for about on tablets and up */
+        text-align: left; /* Align text to left when in row */
+    }
+    .me img {
+        width: 180px; /* Original size */
+        height: 180px;
+        margin-right: 2rem; /* Space to the right of the image */
+        margin-bottom: 0; /* Remove bottom margin when in row */
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    header {
+        padding: 2rem 3rem; /* More padding for large screens */
+    }
+    nav a {
+        margin: 0 1.5rem;
+    }
+    section {
+        padding: 2rem; /* Original padding */
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    section {
+        padding: 2.5rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
 }
